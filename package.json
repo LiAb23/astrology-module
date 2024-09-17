@@ -2,12 +2,18 @@
   "name": "laboration2",
   "version": "1.0.0",
   "description": "A public date manager module, offering a set of helpful functions related to dates.",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/index.js",
+  "devDependencies": {
+    "@lnu/eslint-config": "1.1.10"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npx eslint ./src || exit 0",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:fix": "npx eslint ./src --fix || exit 0"
   },
   "keywords": [],
   "author": "Liv",
   "license": "MIT",
-  "private": "true"
+  "private": true
 }
