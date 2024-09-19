@@ -5,9 +5,17 @@
  */
 
 export class AstrologyGenerator {
-  constructor (inputDate) {
-    this.inputDate = inputDate
-    this.zodiacSigns = []
+  constructor (validatedDate) {
+    this.inputDate = validatedDate
+    this.zodiacSigns = [
+      '♈ Aries', '♉ Taurus', '♊ Gemini', '♋ Cancer', '♌ Leo', '♍ Virgo', '♎ Libra', '♏ Scorpio', '♐ Sagittarius', '♑ Capricorn', '♒ Aquarius', '♓ Pisces'
+    ]
     this.horoscopes = []
+  }
+
+  printZodiac () {
+    for (const zodiacSign of this.zodiacSigns) {
+      console.log(zodiacSign)
+    }
   }
 }
