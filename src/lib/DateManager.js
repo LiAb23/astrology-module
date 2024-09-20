@@ -1,12 +1,14 @@
 /**
- * A module to handle the incoming date and then call on specific classes to perform specific date related operations.
+ * A module to handle (validate) the incoming date and then call on specific classes to perform specific date related operations.
  *
  * @author Liv <lh224hh@student.lnu.se>
  */
 
+import { AstrologyGenerator } from './AstrologyGenerator.js'
+
 export class DateManager {
-  constructor (inputDate) {
-    this.inputDate = inputDate
+  constructor (validatedDate) {
+    this.inputDate = validatedDate
   }
 
   validateDate () {
@@ -22,13 +24,20 @@ export class DateManager {
       }
 
       const validatedDate = date.toISOString().split('T')[0]
+      console.log('Validated date to check sign for:', validatedDate)
       return validatedDate
     } catch (error) {
       throw new Error(`Validation failed: ${error.message}`)
     }
   }
 
-  printDate () {
-    console.log('Please enter a date (YYYY-MM-DD):')
+  callAstrologyGenerator () {
+    const validatedDate = this.validateDate()
+    if (validatedDate) {
+      const astrologyGenerator = new AstrologyGenerator(validatedDate)
+      astrologyGenerator.getZodiacSign()
+    } else {
+      console.error('Validation failed')
+    }
   }
 }
