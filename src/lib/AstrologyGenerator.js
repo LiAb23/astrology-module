@@ -8,8 +8,11 @@ export class AstrologyGenerator {
   constructor (validatedDate) {
     this.inputDate = validatedDate
     this.zodiacSigns = [
-      '♈ Aries', '♉ Taurus', '♊ Gemini', '♋ Cancer', '♌ Leo', '♍ Virgo', '♎ Libra', '♏ Scorpio', '♐ Sagittarius', '♑ Capricorn', '♒ Aquarius', '♓ Pisces'
+      '♈Aries', '♉Taurus', '♊Gemini', '♋Cancer', '♌Leo', '♍Virgo', '♎Libra', '♏Scorpio', '♐Sagittarius', '♑Capricorn', '♒Aquarius', '♓Pisces'
     ]
+    // this.personalityTraits = []
+    this.elements = ['🔥 Fire', '🌍 Earth', '💨 Air', '💧 Water']
+    // this.modality = ['Cardinal', Fixed', 'Mutable']
     // this.horoscopes = []
   }
 
@@ -56,7 +59,44 @@ export class AstrologyGenerator {
 
   // Present the sign.
   getZodiacSign () {
-    const sign = this.#decideZodiacSign()
-    console.log(`Your zodiac sign is: ${sign}`)
+    try {
+      const sign = this.#decideZodiacSign()
+      console.log(`Your zodiac sign is: ${sign}`)
+      return sign
+    } catch (error) {
+      console.error(error.message)
+    }
+  }
+
+  #decideElement () {
+    const elements = [
+      ['♈Aries', '♌Leo', '♐Sagittarius'],
+      ['♉Taurus', '♍Virgo', '♑Capricorn'],
+      ['♊Gemini', '♎Libra', '♒Aquarius'],
+      ['♋Cancer', '♏Scorpio', '♓Pisces']
+    ]
+
+    const sign = this.getZodiacSign()
+
+    for (let i = 0; i < elements.length; i++) {
+      if (elements[i].includes(sign)) {
+        return this.elements[i]
+      }
+    }
+
+    throw new Error(`No matching element found for ${sign}`)
+  }
+
+  // Get the corresponding element to the sign
+  getElement () {
+    try {
+      const sign = this.getZodiacSign()
+      const element = this.#decideElement()
+      console.log(`As a ${sign}, your element is: ${element}`)
+      console.log(`Your element is: ${element}`)
+      return element
+    } catch (error) {
+      console.error(error.message)
+    }
   }
 }

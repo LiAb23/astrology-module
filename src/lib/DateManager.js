@@ -24,7 +24,7 @@ export class DateManager {
       }
 
       const validatedDate = date.toISOString().split('T')[0]
-      console.log('Validated date to check sign for:', validatedDate)
+      console.log('Validated date to check:', validatedDate)
       return validatedDate
     } catch (error) {
       throw new Error(`Validation failed: ${error.message}`)
@@ -35,7 +35,7 @@ export class DateManager {
     const validatedDate = this.validateDate()
     if (validatedDate) {
       const astrologyGenerator = new AstrologyGenerator(validatedDate)
-      astrologyGenerator.getZodiacSign()
+      astrologyGenerator.getElement()
     } else {
       console.error('Validation failed')
     }

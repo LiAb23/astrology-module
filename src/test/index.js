@@ -6,5 +6,5 @@
 
 import { DateManager } from '../lib/DateManager.js'
 
-const dateManager = new DateManager('2023-01-30')
+const dateManager = new DateManager('2023-02-30')
 dateManager.callAstrologyGenerator()
