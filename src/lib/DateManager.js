@@ -1,16 +1,31 @@
+import { AstrologyGenerator } from './AstrologyGenerator.js'
+
 /**
- * A module to handle (validate) the incoming date and then call on specific classes to perform specific date related operations.
+ * This class handles (validates) the incoming date and then calls specific classes to perform specific date related astrological operations.
  *
  * @author Liv <lh224hh@student.lnu.se>
  */
-
-import { AstrologyGenerator } from './AstrologyGenerator.js'
-
 export class DateManager {
-  constructor (validatedDate) {
-    this.inputDate = validatedDate
+  /**
+   * Sets the input date and creates the object if the date is successfully validated.
+   *
+   * @param {string} inputDate The date sent to the class
+   */
+  constructor (inputDate) {
+    this.inputDate = inputDate
+
+    try {
+      this.validatedDate = this.validateDate()
+    } catch (error) {
+      throw new Error(error.message)
+    }
   }
 
+  /**
+   * Validates the incoming date before further processing by checking its format and then comparing it to the date object.
+   *
+   * @returns {string} The validated date in ISO 8610 format
+   */
   validateDate () {
     const re = /^(19|20\d{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
     try {
@@ -24,20 +39,20 @@ export class DateManager {
       }
 
       const validatedDate = date.toISOString().split('T')[0]
-      console.log('Validated date to check:', validatedDate)
+      console.log('Validated date to check astrological data for:', validatedDate)
       return validatedDate
     } catch (error) {
-      throw new Error(`Validation failed: ${error.message}`)
+      throw new Error(error.message)
     }
   }
 
-  callAstrologyGenerator () {
-    const validatedDate = this.validateDate()
-    if (validatedDate) {
-      const astrologyGenerator = new AstrologyGenerator(validatedDate)
-      astrologyGenerator.getElement()
-    } else {
-      console.error('Validation failed')
-    }
+  /**
+   * Creates an instance of the AstrologyGenerator class to perform astrological operations on the validated date.
+   *
+   * @returns {object} The AstrologyGenerator object
+   */
+  getAstrologyGenerator () {
+    const astrologyGenerator = new AstrologyGenerator(this.validatedDate)
+    return astrologyGenerator
   }
 }
