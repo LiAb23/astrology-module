@@ -8,12 +8,11 @@
     "@lnu/eslint-config": "1.1.10"
   },
   "scripts": {
-    "start": "node src/test/test.js",
+    "test": "node src/test/testApp.js",
     "lint": "npx eslint ./src || exit 0",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint:fix": "npx eslint ./src --fix || exit 0"
   },
-  "keywords": [],
+  "keywords": ["astrology"],
   "author": "Liv",
   "license": "MIT",
   "private": true

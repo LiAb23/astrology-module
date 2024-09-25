@@ -1,7 +1,7 @@
-import { AstrologyGenerator } from './AstrologyGenerator.js'
+import { ZodiacSign } from './ZodiacSign.js'
 
 /**
- * This class handles (validates) the incoming date and then calls specific classes to perform specific date related astrological operations.
+ * This class handles (validates) the incoming date and then creates a zodiac sign object based on it to perform specific astrological operations.
  *
  * @author Liv <lh224hh@student.lnu.se>
  */
@@ -39,7 +39,7 @@ export class DateManager {
       }
 
       const validatedDate = date.toISOString().split('T')[0]
-      console.log('Validated date to check astrological data for:', validatedDate)
+
       return validatedDate
     } catch (error) {
       throw new Error(error.message)
@@ -47,12 +47,12 @@ export class DateManager {
   }
 
   /**
-   * Creates an instance of the AstrologyGenerator class to perform astrological operations on the validated date.
+   * Creates an instance of the ZodiacSign class to perform astrological operations on the validated date.
    *
-   * @returns {object} The AstrologyGenerator object
+   * @returns {object} The ZodiacSign object
    */
-  getAstrologyGenerator () {
-    const astrologyGenerator = new AstrologyGenerator(this.validatedDate)
-    return astrologyGenerator
+  getZodiacSign () {
+    const zodiacSign = new ZodiacSign(this.validatedDate)
+    return zodiacSign
   }
 }
