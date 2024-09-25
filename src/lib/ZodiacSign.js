@@ -1,30 +1,27 @@
 /**
- * This class takes the validated date from DateManager, and sets its corresponding zodiac sign which can be used furher to generate various astrological data such as element and modality.
+ * The class takes the validated date from DateManager, and sets its corresponding zodiac sign which can be used further to generate various astrological data such as element and modality.
  *
  * @author Liv <lh224hh@student.lnu.se>
  */
 export class ZodiacSign {
   /**
-   * Sets the zodiac signs.
+   * Sets the validated date from the DateManager class.
    *
    * @param {string} validatedDate The validated date
    */
   constructor (validatedDate) {
-    this.inputDate = validatedDate
-    this.zodiacSigns = [
-      '♈Aries', '♉Taurus', '♊Gemini', '♋Cancer', '♌Leo', '♍Virgo', '♎Libra', '♏Scorpio', '♐Sagittarius', '♑Capricorn', '♒Aquarius', '♓Pisces'
-    ]
+    this.validatedDate = validatedDate
     // this.personalityTraits = []
     // this.horoscopes = []
   }
 
   /**
-   * Sets the dates for each sign to decide the zodiac sign of the given date.
+   * Sets the dates for each sign and decides the zodiac sign of the given date.
    *
    * @returns {string} The zodiac sign of the validatedDate
    */
   #decideZodiacSign () {
-    const zodiacSign = {
+    const zodiacSigns = {
       '♈Aries': { start: '03-21', end: '04-19' },
       '♉Taurus': { start: '04-20', end: '05-20' },
       '♊Gemini': { start: '05-21', end: '06-20' },
@@ -42,21 +39,21 @@ export class ZodiacSign {
       '♓Pisces': { start: '02-19', end: '03-20' }
     }
 
-    const monthDay = this.inputDate.slice(5)
+    const monthDay = this.validatedDate.slice(5)
 
-    for (const sign in zodiacSign) {
-      const periods = zodiacSign[sign]
+    for (const zodiacSign in zodiacSigns) {
+      const periods = zodiacSigns[zodiacSign]
 
       if (Array.isArray(periods)) {
         for (const period of periods) {
           if (monthDay >= period.start && monthDay <= period.end) {
-            return sign
+            return zodiacSign
           }
         }
       } else {
         const { start, end } = periods
         if (monthDay >= start && monthDay <= end) {
-          return sign
+          return zodiacSign
         }
       }
     }
@@ -69,8 +66,8 @@ export class ZodiacSign {
    * @returns {string} The zodiac sign of the validatedDate
    */
   getZodiacSign () {
-    const sign = this.#decideZodiacSign()
+    const zodiacSign = this.#decideZodiacSign()
 
-    return sign
+    return zodiacSign
   }
 }

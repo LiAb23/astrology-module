@@ -1,7 +1,7 @@
 import { ZodiacSign } from './ZodiacSign.js'
 
 /**
- * This class handles (validates) the incoming date and then creates a zodiac sign object based on it to perform specific astrological operations.
+ * The class handles (validates) the incoming date, then creates a zodiac sign object based on it which can be used to perform more specific astrological operations.
  *
  * @author Liv <lh224hh@student.lnu.se>
  */
@@ -22,9 +22,9 @@ export class DateManager {
   }
 
   /**
-   * Validates the incoming date before further processing by checking its format and then comparing it to the date object.
+   * Validates the incoming date before further processing by checking its format with regex and then comparing it to the JavaScript standard date object to determine if it is a valid date.
    *
-   * @returns {string} The validated date in ISO 8610 format
+   * @returns {string} The validated date in ISO 8601 format
    */
   validateDate () {
     const re = /^(19|20\d{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
@@ -47,7 +47,7 @@ export class DateManager {
   }
 
   /**
-   * Creates an instance of the ZodiacSign class to perform astrological operations on the validated date.
+   * Creates an instance of the ZodiacSign class used to perform astrological operations on the validated date.
    *
    * @returns {object} The ZodiacSign object
    */

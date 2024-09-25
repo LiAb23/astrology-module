@@ -1,17 +1,16 @@
 /**
- * This class determines the modality associated with the zodiac sign from the ZodiacSign class.
+ * The class determines the modality associated with the zodiac sign from the ZodiacSign class.
  *
  * @author Liv <lh224hh@student.lnu.se>
  */
 export class Modality {
   /**
-   * Sets the zodiac sign and modalities.
+   * Sets the zodiac sign.
    *
-   * @param {string} sign The zodiac sign to use
+   * @param {string} zodiacSign The zodiac sign to determine modality for
    */
-  constructor (sign) {
-    this.sign = sign
-    this.modalities = ['Cardinal', 'Fixed', 'Mutable']
+  constructor (zodiacSign) {
+    this.zodiacSign = zodiacSign
   }
 
   /**
@@ -26,15 +25,15 @@ export class Modality {
       Mutable: ['♐Sagittarius', '♓Pisces', '♊Gemini', '♍Virgo']
     }
 
-    const sign = this.sign
+    const zodiacSign = this.zodiacSign
 
     for (const modality in modalities) {
-      if (modalities[modality].includes(sign)) {
+      if (modalities[modality].includes(zodiacSign)) {
         return modality
       }
     }
 
-    throw new Error(`No matching modality found for ${sign}`)
+    throw new Error(`No matching modality found for ${zodiacSign}`)
   }
 
   /**

@@ -9,12 +9,12 @@ import { ZodiacSign } from '../lib/ZodiacSign.js'
 import { Modality } from '../lib/Modality.js'
 import { Element } from '../lib/Element.js'
 
-const dateManager = new DateManager('2023-10-30')
+const dateManager = new DateManager('2023-03-30')
 
 const validatedDate = dateManager.validatedDate
 console.log('Validated date to check astrological data for:', validatedDate)
 
-const zodiacSign = new ZodiacSign('2023-11-30')
+const zodiacSign = new ZodiacSign('2023-03-30')
 const sign = zodiacSign.getZodiacSign()
 console.log(`Your zodiac sign is: ${sign}`)
 
