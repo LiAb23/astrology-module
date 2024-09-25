@@ -40,7 +40,11 @@ export class DateManager {
 
       const validatedDate = date.toISOString().split('T')[0]
 
-      return validatedDate
+      if (validatedDate !== this.inputDate) {
+        throw new Error('The date is not a valid date.')
+      } else {
+        return validatedDate
+      }
     } catch (error) {
       throw new Error(error.message)
     }
