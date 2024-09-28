@@ -1,7 +1,13 @@
+/*
+* Copyright (c) [2024] [Liv Åberg]
+* Licensed under the MIT License. For full license information, see LICENSE file.
+*/
+
 /**
  * File to perform manual tests on the module.
  *
  * @author Liv <lh224hh@student.lnu.se>
+ * @version 1.0.0
  */
 
 import { DateManager } from '../lib/DateManager.js'
@@ -139,12 +145,24 @@ try {
   console.log('Error sent from the getZodiacSign method:', error.message, '\n')
 }
 
+console.log('TC11: Try invalid zodiac sign')
+try {
+  const zodiacSign = new ZodiacSign('2023-02-30')
+  console.log('Input: This is the tested input date: 2023-02-30')
+  console.log('Expected output: an error message')
+
+  const sign = zodiacSign.getZodiacSign()
+  console.log('Output: The zodiac sign for this date is:', sign, '\n')
+} catch (error) {
+  console.log('Error sent from the getZodiacSign method:', error.message, '\n')
+}
+
 /**
  * Tests for the Element class
  *
  */
 console.log('Tests for the Element class:\n')
-console.log('TC11: Get the element for 🔥 Fire sign')
+console.log('TC12: Get the element for 🔥 Fire sign')
 try {
   const elementClass = new Element('♈Aries')
   console.log('Input: This is the tested input sign: ♈Aries')
@@ -156,7 +174,7 @@ try {
   console.log('Error sent from the getElement method:', error.message, '\n')
 }
 
-console.log('TC12: Get the element for 💨 Air sign')
+console.log('TC13: Get the element for 💨 Air sign')
 try {
   const elementClass = new Element('♎Libra')
   console.log('Input: This is the tested input sign: ♎Libra')
@@ -168,7 +186,7 @@ try {
   console.log('Error sent from the getElement method:', error.message, '\n')
 }
 
-console.log('TC13: Get the element for an invalid sign')
+console.log('TC14: Get the element for an invalid sign')
 try {
   const elementClass = new Element('?Invalid sign')
   console.log('Input: This is the tested input sign: ?Invalid sign')
@@ -185,7 +203,7 @@ try {
  *
  */
 console.log('Tests for the Modality class:\n')
-console.log('TC14: Get the modality for a fixed sign')
+console.log('TC15: Get the modality for a fixed sign')
 try {
   const modalityClass = new Modality('♉Taurus')
   console.log('Input: This is the tested input sign: ♉Taurus')
@@ -197,7 +215,7 @@ try {
   console.log('Error sent from the getModality method:', error.message, '\n')
 }
 
-console.log('TC15: Get the modality for a mutable sign')
+console.log('TC16: Get the modality for a mutable sign')
 try {
   const modalityClass = new Modality('♐Sagittarius')
   console.log('Input: This is the tested input sign: ♐Sagittarius')
@@ -209,7 +227,7 @@ try {
   console.log('Error sent from the getModality method:', error.message, '\n')
 }
 
-console.log('TC16: Get the modality for an invalid sign')
+console.log('TC17: Get the modality for an invalid sign')
 try {
   const modalityClass = new Modality('♎Libro')
   console.log('Input: This is the tested input sign: ♎Libro')

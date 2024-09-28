@@ -1,7 +1,7 @@
 {
   "name": "laboration2",
   "version": "1.0.0",
-  "description": "A public date manager module, offering a set of helpful functions related to dates.",
+  "description": "A public astrology module, offering a set of helpful methods to validate dates and generating astrological data based on it.",
   "type": "module",
   "main": "src/index.js",
   "devDependencies": {

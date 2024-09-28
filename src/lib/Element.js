@@ -1,7 +1,13 @@
+/*
+* Copyright (c) [2024] [Liv Åberg]
+* Licensed under the MIT License. For full license information, see LICENSE file.
+*/
+
 /**
  * The class determines the element associated with the zodiac sign from the ZodiacSign class.
  *
  * @author Liv <lh224hh@student.lnu.se>
+ * @version 1.0.0
  */
 export class Element {
   /**

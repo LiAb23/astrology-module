@@ -1,9 +1,15 @@
+/*
+* Copyright (c) [2024] [Liv Åberg]
+* Licensed under the MIT License. For full license information, see LICENSE file.
+*/
+
 import { ZodiacSign } from './ZodiacSign.js'
 
 /**
  * The class handles (validates) the incoming date, then creates a zodiac sign object based on it which can be used to perform more specific astrological operations.
  *
  * @author Liv <lh224hh@student.lnu.se>
+ * @version 1.0.0
  */
 export class DateManager {
   #inputDate
