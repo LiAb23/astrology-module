@@ -1,7 +1,7 @@
 # Astrology Module
 
-Version: 1.0.0
-Language: JavaScript
+Version: 1.0.0  
+Language: JavaScript  
 
 The Astrology module is designed to help you retrieve astrological data based on a given date. As for now, the data it provides are the zodiac sign, the element, and the modality as well as validating dates.
 
@@ -13,7 +13,7 @@ The module is ideal for developers wanting to have easy access to astrological d
 - Element retrieval
 - Modality retrieval
 
-**The module allows you to:**
+**The module allows you to:**  
 Validate dates to ensure they are valid and in the correct YYYY-MM-DD format.
 Retrieve the zodiac sign associated with a validated date.
 Get additional astrological information, such as the element (Fire, Earth, Air, Water) and modality (Cardinal, Fixed, Mutable) for a given zodiac sign.
@@ -23,16 +23,16 @@ Get additional astrological information, such as the element (Fire, Earth, Air, 
 
 To use the module, follow these steps:
 
-**Clone the repository from GitHub:**
+**Clone the repository from GitHub:**  
 git clone https://github.com/LiAb23/astrology-module.git
 
-**Move the module into your project:**
+**Move the module into your project:**  
 move the lib folder into the src directory of your project
 
-**Install dependencies using:**
+**Install dependencies using:**  
 npm install
 
-**Import the module into your project:**
+**Import the module into your project:**  
 import { DateManager } from './src/lib/DateManager.js'
 
 
@@ -42,30 +42,30 @@ This is an example on how to use the Astrology module in your project:
 
 import { DateManager } from './src/lib/DateManager.js'
 
-try {
-  const dateManager = new DateManager('2023-03-30')
-  const zodiacSign = dateManager.getZodiacSignObject().getZodiacSign()
-  const element = new Element(zodiacSign).getElement()
-  const modality = new Modality(zodiacSign).getModality()
+try {  
+  const dateManager = new DateManager('2023-03-30')  
+  const zodiacSign = dateManager.getZodiacSignObject().getZodiacSign()  
+  const element = new Element(zodiacSign).getElement()  
+  const modality = new Modality(zodiacSign).getModality()  
   
-  console.log(`Zodiac sign: ${zodiacSign}`)
-  console.log(`Element: ${element}`)
-  console.log(`Modality: ${modality}`)
-} catch (error) {
-  console.log(error.message)
-}
+  console.log(`Zodiac sign: ${zodiacSign}`)  
+  console.log(`Element: ${element}`)  
+  console.log(`Modality: ${modality}`)  
+} catch (error) {  
+  console.log(error.message)  
+}  
 
-**Expected output:**
-Zodiac sign: ♈Aries
-Element: 🔥 Fire
-Modality: Cardinal
+**Expected output:**  
+Zodiac sign: ♈Aries  
+Element: 🔥 Fire  
+Modality: Cardinal  
 
 
 # Dependencies
 
 The Astrology module does not rely on external dependencies, aside from the development tool ESLint for code quality.
 
-**Development dependency:**
+**Development dependency:**  
  "@lnu/eslint-config": "1.1.10"
 
 
@@ -111,7 +111,7 @@ Returns: A string representing the element (🔥 Fire, 🌍 Earth, 💨 Air, �
 
 To test the Astrology module, manual testcases that cover each method can be found in testApp.js.
 
-To run the tests, use the following command:
+To run the tests, use the following command:  
 npm test
 
 
@@ -122,7 +122,7 @@ Any bugs found during testing are documented in [bugrapport.md](./bugrapport.md)
 
 # License
 
-Copyright (c) [2024] [Liv Åberg]
+Copyright (c) [2024] [Liv Åberg]  
 This project is licensed under the terms of the MIT license. For full license information, see LICENSE file.
 
 
