@@ -17,8 +17,6 @@ export class ZodiacSign {
    */
   constructor (validatedDate) {
     this.validatedDate = validatedDate
-    // this.personalityTraits = []
-    // this.horoscopes = []
   }
 
   /**

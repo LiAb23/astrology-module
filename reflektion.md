@@ -1,5 +1,12 @@
 # Allmänna reflektioner
 
+I arbetet med den här uppgiften och med genomgång av de två kapitlen har jag fått med mig bra riktlinjer att tänka på när jag skriver kod. Jag har kunnat jämföra min kod med det jag läser, och identifiera såväl områden och fall där jag väl följer rekommendationerna, något att ta fasta på, samt områden där jag brister och behöver tänka på att försöka applicera mer framöver. Att sträva efter Single Responsibility Principle (SRP) känner jag t ex att jag kan utvecklas mer kring.<br>  
+
+Jag har sett, både i denna uppgift, och i tidigare jag gjort, att jag kan bli bättre på att applicera DRY-principen. I någon metod har jag nog använt lite väl många nästlade strukturer som bör kunna förenklas/delas upp.<br>  
+
+Jag kan verkligen se vikten av att få koden och programmen mer abstrakta och hanterbara då det är väldigt komplexa strukturer vi arbetar med. Att förmå göra koden både mer förståbar och mer läsbar, såväl för sig själv och andra utvecklare, samt även för automatiserade aktörer ger mycket tillbaka till alla inblandade. Att dela upp sin kod i mindre komponenter är en del i detta. Många av reglerna i boken tycker jag går in i varandra, och är rätt logiska, men det är bra att få läsa om och reflektera kring det, det gör det både tydligare och mer nära till hands.<br>  
+
+Att tänka på att hålla sig konsekvent, tydlig och väl avgränsad är några av medskicken jag tar med mig. Jag ser fram emot att nu kunna börja utvecklas och hitta mina sätt att skriva bra och ren kod.<br>  
 
 
 # Namngivning (kapitel 2)

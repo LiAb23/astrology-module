@@ -55,13 +55,3 @@ export class Element {
     return element
   }
 }
-
-// 'These elements represent different facets of personality and how individuals express themselves in the world.
-
-// 'Fire signs are passionate, energetic, and confident. They are often initiators, natural leaders, and risk-takers. Their enthusiasm can sometimes make them impulsive or quick-tempered.'
-
-// 'Earth signs are practical, stable, and reliable. They are grounded, value security, and are good with handling material matters. They prefer long-term plans and stability.'
-
-// 'Air signs are intellectual, communicative, and social. They thrive on mental energy, enjoy exchanging ideas, and tend to think analytically. They are diplomatic and seek balance and fairness.'
-
-// 'Water signs are emotional, intuitive, and creative. They are deeply connected to their own feelings and the emotions of others. They tend to be compassionate and have a strong understanding of human relationships.'
