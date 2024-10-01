@@ -1,0 +1,19 @@
+{
+  "name": "laboration2",
+  "version": "1.0.0",
+  "description": "A public astrology module, offering a set of helpful methods to validate dates and generating astrological data based on it.",
+  "type": "module",
+  "main": "src/index.js",
+  "devDependencies": {
+    "@lnu/eslint-config": "1.1.10"
+  },
+  "scripts": {
+    "test": "node src/test/testApp.js",
+    "lint": "npx eslint ./src || exit 0",
+    "lint:fix": "npx eslint ./src --fix || exit 0"
+  },
+  "keywords": ["astrology"],
+  "author": "Liv",
+  "license": "MIT",
+  "private": true
+}
