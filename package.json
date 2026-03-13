@@ -12,8 +12,15 @@
     "lint": "npx eslint ./src || exit 0",
     "lint:fix": "npx eslint ./src --fix || exit 0"
   },
-  "keywords": ["astrology"],
+  "keywords": [
+    "astrology"
+  ],
   "author": "Liv",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "js-yaml": "^4.1.1",
+    "minimatch": "^10.1.1"
+  }
 }

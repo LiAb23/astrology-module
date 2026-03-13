@@ -13,3 +13,4 @@ Stjärntecknet Fiskarna returneras.
 
 **För mer information:**
 Se TC11 i 'testApp.js' och 'testrapport.md'.
+Se även Issue x i GitHub (ej skapad ännu)

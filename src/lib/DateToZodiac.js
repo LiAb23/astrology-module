@@ -1,5 +1,5 @@
 /*
-* Copyright (c) [2024] [Liv Åberg]
+* Copyright (c) [2026] [Liv Åberg]
 * Licensed under the MIT License. For full license information, see LICENSE file.
 */
 
@@ -11,7 +11,7 @@ import { ZodiacSign } from './ZodiacSign.js'
  * @author Liv <lh224hh@student.lnu.se>
  * @version 1.0.0
  */
-export class DateManager {
+export class DateToZodiac {
   #inputDate
 
   /**

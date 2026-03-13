@@ -1,5 +1,5 @@
 /*
-* Copyright (c) [2024] [Liv Åberg]
+* Copyright (c) [2026] [Liv Åberg]
 * Licensed under the MIT License. For full license information, see LICENSE file.
 */
 

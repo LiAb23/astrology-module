@@ -1,17 +1,17 @@
 /*
-* Copyright (c) [2024] [Liv Åberg]
+* Copyright (c) [2026] [Liv Åberg]
 * Licensed under the MIT License. For full license information, see LICENSE file.
 */
 
 /**
- * The class takes the validated date from DateManager, and sets its corresponding zodiac sign which can be used further to generate various astrological data such as element and modality.
+ * The class takes the validated date from DateToZodiac, and sets its corresponding zodiac sign which can be used further to generate various astrological data such as element and modality.
  *
  * @author Liv <lh224hh@student.lnu.se>
  * @version 1.0.0
  */
 export class ZodiacSign {
   /**
-   * Sets the validated date from the DateManager class.
+   * Sets the validated date from the DateToZodiac class.
    *
    * @param {string} validatedDate The validated date
    */

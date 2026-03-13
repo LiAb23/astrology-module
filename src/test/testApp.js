@@ -1,5 +1,5 @@
 /*
-* Copyright (c) [2024] [Liv Åberg]
+* Copyright (c) [2026] [Liv Åberg]
 * Licensed under the MIT License. For full license information, see LICENSE file.
 */
 
@@ -10,19 +10,19 @@
  * @version 1.0.0
  */
 
-import { DateManager } from '../lib/DateManager.js'
+import { DateToZodiac } from '../lib/DateToZodiac.js'
 import { ZodiacSign } from '../lib/ZodiacSign.js'
 import { Modality } from '../lib/Modality.js'
 import { Element } from '../lib/Element.js'
 
 /**
- * Tests for the DateManager class
+ * Tests for the DateToZodiac class
  *
  */
-console.log('Tests for the DateManager class:\n')
+console.log('Tests for the DateToZodiac class:\n')
 console.log('TC1: Valid date')
 try {
-  const validDateTest = new DateManager('2023-03-30')
+  const validDateTest = new DateToZodiac('2023-03-30')
   console.log('Input: This is the tested input date: 2023-03-30')
   console.log('Expected output: 2023-03-30')
 
@@ -34,7 +34,7 @@ try {
 
 console.log('TC2: Invalid format')
 try {
-  const invalidFormatTest = new DateManager('2023-0-30')
+  const invalidFormatTest = new DateToZodiac('2023-0-30')
   console.log('Input: This is the tested input date: 2023-0-30')
   console.log('Expected output: an error message')
 
@@ -46,7 +46,7 @@ try {
 
 console.log('TC3: Invalid format')
 try {
-  const invalidFormat2Test = new DateManager('23-01-30')
+  const invalidFormat2Test = new DateToZodiac('23-01-30')
   console.log('Input: This is the tested input date: 23-01-30')
   console.log('Expected output: an error message')
 
@@ -58,7 +58,7 @@ try {
 
 console.log('TC4: Invalid format')
 try {
-  const invalidFormat3Test = new DateManager('30 jan 2023')
+  const invalidFormat3Test = new DateToZodiac('30 jan 2023')
   console.log('Input: This is the tested input date: 30 jan 2023')
   console.log('Expected output: an error message')
 
@@ -70,7 +70,7 @@ try {
 
 console.log('TC5: Invalid date')
 try {
-  const invalidDateTest = new DateManager('2023-02-30')
+  const invalidDateTest = new DateToZodiac('2023-02-30')
   console.log('Input: This is the tested input date: 2023-02-30')
   console.log('Expected output: an error message')
 
@@ -82,11 +82,11 @@ try {
 
 console.log('TC6: Create object with valid date')
 try {
-  const dateManager = new DateManager('2023-01-30')
+  const dateToZodiac = new DateToZodiac('2023-01-30')
   console.log('Input: This is the tested input date: 2023-01-30')
   console.log('Expected output: an object')
 
-  const zodiacSignObject = dateManager.getZodiacSignObject()
+  const zodiacSignObject = dateToZodiac.getZodiacSignObject()
   console.log('Output: This is the returned object:', zodiacSignObject, '\n')
 } catch (error) {
   console.log('Error sent from the getZodiacSign method:', error.message, '\n')
@@ -94,11 +94,11 @@ try {
 
 console.log('TC7: Create object with invalid date')
 try {
-  const dateManager = new DateManager('2023-02-30')
+  const dateToZodiac = new DateToZodiac('2023-02-30')
   console.log('Input: This is the tested input date: 2023-02-30')
   console.log('Expected output: an error message')
 
-  const zodiacSignObject = dateManager.getZodiacSignObject()
+  const zodiacSignObject = dateToZodiac.getZodiacSignObject()
   console.log('Output: This is the returned object:', zodiacSignObject, '\n')
 } catch (error) {
   console.log('Error sent from the getZodiacSign method:', error.message, '\n')

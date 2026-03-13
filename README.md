@@ -19,6 +19,34 @@ Retrieve the zodiac sign associated with a validated date.
 Get additional astrological information, such as the element (Fire, Earth, Air, Water) and modality (Cardinal, Fixed, Mutable) for a given zodiac sign.
 
 
+# Example use
+
+This is an example on how to use the Astrology module in your project:
+
+```javascript
+import { DateToZodiac } from './src/lib/DateToZodiac.js'
+
+try {  
+  const dateToZodiac = new DateToZodiac('2023-03-30')  
+  const zodiacSign = dateToZodiac.getZodiacSignObject().getZodiacSign()  
+  const element = new Element(zodiacSign).getElement()  
+  const modality = new Modality(zodiacSign).getModality()  
+  
+  console.log(`Zodiac sign: ${zodiacSign}`)  
+  console.log(`Element: ${element}`)  
+  console.log(`Modality: ${modality}`)  
+} catch (error) {  
+  console.log(error.message)  
+}  
+
+```
+
+**Expected output:**  
+Zodiac sign: ♈Aries  
+Element: 🔥 Fire  
+Modality: Cardinal  
+
+
 # Installation 
 
 To use the module, follow these steps:
@@ -33,35 +61,8 @@ move the lib folder into the src directory of your project
 npm install
 
 **Import the module into your project:**  
-import { DateManager } from './src/lib/DateManager.js'
+import { DateToZodiac } from './src/lib/DateToZodiac.js'
 
-
-# Example use
-
-This is an example on how to use the Astrology module in your project:
-
-```
-import { DateManager } from './src/lib/DateManager.js'
-
-try {  
-  const dateManager = new DateManager('2023-03-30')  
-  const zodiacSign = dateManager.getZodiacSignObject().getZodiacSign()  
-  const element = new Element(zodiacSign).getElement()  
-  const modality = new Modality(zodiacSign).getModality()  
-  
-  console.log(`Zodiac sign: ${zodiacSign}`)  
-  console.log(`Element: ${element}`)  
-  console.log(`Modality: ${modality}`)  
-} catch (error) {  
-  console.log(error.message)  
-}  
-
-**Expected output:**  
-Zodiac sign: ♈Aries  
-Element: 🔥 Fire  
-Modality: Cardinal  
-
-``````
 
 # Dependencies
 
@@ -69,6 +70,16 @@ The Astrology module does not rely on external dependencies, aside from the deve
 
 **Development dependency:**  
  "@lnu/eslint-config": "1.1.10"
+
+
+# Requirements
+
+For more detailed information on the module's requirements, refer to the [Module Requirements](https://docs.google.com/document/d/1Fi_4C4SgL3FA1h_9j9_2Opu39FLBGUjsPr1sRMULy_U/edit?pli=1#heading=h.wdcld312ubab) document. 
+
+
+# Syntax
+
+This project follows the ESLint configuration provided by `@lnu/eslint-config`, which enforces consistent coding standards throughout the project. Ensure that ESLint is properly configured in your development environment to maintain code quality.
 
 
 # Module overview
@@ -82,11 +93,28 @@ Arguments: none
 Returns: A string in ISO 8601 format (YYYY-MM-DD) if the provided date is valid.
 Throws an error if the date is not in the correct format or if it is invalid.
 
+```javascript
+import { DateToZodiac } from './src/lib/DateToZodiac.js';
+
+const dateToZodiac = new DateToZodiac('2024-03-01');
+const validateDate = dateToZodiac.validateDate();
+console.log(validateDate);
+```
+
 **getZodiacSignObject()**
 
 Arguments: none
 
 Returns: An object of type ZodiacSign, which represents the zodiac sign for the validated date.
+
+```javascript
+import { DateToZodiac } from './src/lib/DateToZodiac.js';
+
+const dateToZodiac = new DateToZodiac('2024-03-01');
+const zodiacSignObject = dateToZodiac.getZodiacSignObject();
+console.log(zodiacSignObject.getZodiacSign());
+
+```
 
 **getZodiacSign()**
 
@@ -122,25 +150,15 @@ npm test
 Any bugs found during testing are documented in [bugrapport.md](./bugrapport.md).
 
 
+# Updates
+
+This is the first version of the module (1.0.0). Currently, there are no planned updates. Any potential future changes will follow semantic versioning (major.minor.patch).
+
+
 # License
 
-Copyright (c) [2024] [Liv Åberg]  
+Copyright (c) [2026] [Liv Åberg]  
 This project is licensed under the terms of the MIT license. For full license information, see LICENSE file.
-
-
- # Updates
-
- This is the first version of the module (1.0.0). Currently, there are no planned updates. Any potential future changes will follow semantic versioning (major.minor.patch).
-
-
-# Syntax
-
-This project follows the ESLint configuration provided by `@lnu/eslint-config`, which enforces consistent coding standards throughout the project. Ensure that ESLint is properly configured in your development environment to maintain code quality.
-
-
-# Requirements
-
-For more detailed information on the module's requirements, refer to the [Module Requirements](https://docs.google.com/document/d/1Fi_4C4SgL3FA1h_9j9_2Opu39FLBGUjsPr1sRMULy_U/edit?pli=1#heading=h.wdcld312ubab) document. 
 
 
 # Contributions
