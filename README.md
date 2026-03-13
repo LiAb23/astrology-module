@@ -40,6 +40,7 @@ import { DateManager } from './src/lib/DateManager.js'
 
 This is an example on how to use the Astrology module in your project:
 
+```
 import { DateManager } from './src/lib/DateManager.js'
 
 try {  
@@ -60,6 +61,7 @@ Zodiac sign: ♈Aries
 Element: 🔥 Fire  
 Modality: Cardinal  
 
+``````
 
 # Dependencies
 

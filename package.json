@@ -1,5 +1,5 @@
 {
-  "name": "laboration2",
+  "name": "astrology-module",
   "version": "1.0.0",
   "description": "A public astrology module, offering a set of helpful methods to validate dates and generating astrological data based on it.",
   "type": "module",
