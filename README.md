@@ -136,6 +136,7 @@ Returns: A string representing the element (🔥 Fire, 🌍 Earth, 💨 Air, �
 
 ![alt-text](diagram.png)
 
+**Edit:** DateManager is now called DateToZodiac  
 
 # Testing
 

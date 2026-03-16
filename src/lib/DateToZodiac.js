@@ -1,32 +1,28 @@
 /*
-* Copyright (c) [2026] [Liv Åberg]
-* Licensed under the MIT License. For full license information, see LICENSE file.
-*/
+ * Copyright (c) [2026] [Liv Åberg]
+ * Licensed under the MIT License. For full license information, see LICENSE file.
+ */
 
 import { ZodiacSign } from './ZodiacSign.js'
 
 /**
- * The class handles (validates) the incoming date, then creates a zodiac sign object based on it which can be used to perform more specific astrological operations.
+ * The class validates the incoming date and stores the validated result. It can then create a zodiac sign object based on the validated date, which can be used to perform more specific astrological operations.
  *
  * @author Liv <lh224hh@student.lnu.se>
  * @version 1.0.0
  */
 export class DateToZodiac {
   #inputDate
+  #validatedDate
 
   /**
-   * Sets the input date and creates the object if the date is successfully validated.
+   * Sets the input date, validates it, and creates the object if the date is successfully validated.
    *
    * @param {string} inputDate The date sent to the class
    */
   constructor (inputDate) {
     this.#inputDate = inputDate
-
-    try {
-      this.validatedDate = this.validateDate()
-    } catch (error) {
-      throw new Error(error.message)
-    }
+    this.#validatedDate = this.validateDate()
   }
 
   /**
@@ -35,9 +31,9 @@ export class DateToZodiac {
    * @returns {string} The validated date in ISO 8601 format
    */
   validateDate () {
-    const re = /^(19|20\d{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
+    const dateRegex = /^(19|20\d{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
     try {
-      if (!re.test(this.#inputDate)) {
+      if (!dateRegex.test(this.#inputDate)) {
         throw new Error('The date must be in the following format: YYYY-MM-DD')
       }
 
@@ -59,12 +55,20 @@ export class DateToZodiac {
   }
 
   /**
-   * Creates an instance of the ZodiacSign class used to perform astrological operations on the validated date.
+   * Retrieves the validated date.
+   *
+   * @returns {string} The validated date
+   */
+  getValidatedDate () {
+    return this.#validatedDate
+  }
+
+  /**
+   * Creates and returns the ZodiacSign object used to perform astrological operations on the validated date.
    *
    * @returns {object} The ZodiacSign object
    */
   getZodiacSignObject () {
-    const zodiacSign = new ZodiacSign(this.validatedDate)
-    return zodiacSign
+    return new ZodiacSign(this.#validatedDate)
   }
 }

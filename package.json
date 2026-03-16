@@ -5,7 +5,8 @@
   "type": "module",
   "main": "src/index.js",
   "devDependencies": {
-    "@lnu/eslint-config": "1.1.10"
+    "@lnu/eslint-config": "1.1.10",
+    "prettier": "^3.7.4"
   },
   "scripts": {
     "test": "node src/test/testApp.js",

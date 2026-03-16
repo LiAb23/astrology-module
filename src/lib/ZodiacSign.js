@@ -1,7 +1,7 @@
 /*
-* Copyright (c) [2026] [Liv Åberg]
-* Licensed under the MIT License. For full license information, see LICENSE file.
-*/
+ * Copyright (c) [2026] [Liv Åberg]
+ * Licensed under the MIT License. For full license information, see LICENSE file.
+ */
 
 /**
  * The class takes the validated date from DateToZodiac, and sets its corresponding zodiac sign which can be used further to generate various astrological data such as element and modality.
@@ -10,17 +10,19 @@
  * @version 1.0.0
  */
 export class ZodiacSign {
+  #validatedDate
+
   /**
-   * Sets the validated date from the DateToZodiac class.
+   * Initializes the ZodiacSign object with the validated date from the DateToZodiac class.
    *
    * @param {string} validatedDate The validated date
    */
   constructor (validatedDate) {
-    this.validatedDate = validatedDate
+    this.#validatedDate = validatedDate
   }
 
   /**
-   * Sets the dates for each sign and decides the zodiac sign of the given date.
+   * Defines the dates of each sign and determines the zodiac sign of the given date.
    *
    * @returns {string} The zodiac sign of the validatedDate
    */
@@ -43,7 +45,7 @@ export class ZodiacSign {
       '♓Pisces': { start: '02-19', end: '03-20' }
     }
 
-    const monthDay = this.validatedDate.slice(5)
+    const monthDay = this.#validatedDate.slice(5)
 
     for (const zodiacSign in zodiacSigns) {
       const periods = zodiacSigns[zodiacSign]
@@ -65,7 +67,7 @@ export class ZodiacSign {
   }
 
   /**
-   * The presentation of the sign.
+   * Retrieves the zodiac sign.
    *
    * @returns {string} The zodiac sign of the validatedDate
    */
