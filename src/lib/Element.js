@@ -24,25 +24,53 @@ export class Element {
   }
 
   /**
-   * Maps the zodiac sign to its corresponding element.
+   * Determines the element for the zodiac sign.
    *
    * @returns {string} The element corresponding to the sign
    */
   #decideElement () {
-    const signsForElement = [
+    const signsForElement = this.#getSignsForElement()
+    return this.#findElement(this.#zodiacSign, signsForElement)
+  }
+
+  /**
+   * Returns the mapping of zodiac signs grouped by their element.
+   *
+   * @returns {Array<Array<string>>} Zodiac signs grouped by element
+   */
+  #getSignsForElement () {
+    return [
       ['♈Aries', '♌Leo', '♐Sagittarius'],
       ['♉Taurus', '♍Virgo', '♑Capricorn'],
       ['♊Gemini', '♎Libra', '♒Aquarius'],
       ['♋Cancer', '♏Scorpio', '♓Pisces']
     ]
+  }
 
+  /**
+   * Finds the element for a given zodiac sign.
+   *
+   * @param {string} sign The zodiac sign to find the element for
+   * @param {Array<Array<string>>} signsForElement Grouped zodiac signs
+   * @returns {string} The matching element
+   */
+  #findElement (sign, signsForElement) {
     for (let i = 0; i < signsForElement.length; i++) {
-      if (signsForElement[i].includes(this.#zodiacSign)) {
+      if (signsForElement[i].includes(sign)) {
         return this.#elements[i]
       }
     }
 
-    throw new Error(`No matching element found for ${this.#zodiacSign}`)
+    return this.#handleNoMatchingElement()
+  }
+
+  /**
+   * Handles the case when no matching element is found.
+   *
+   * @throws {Error} If no matching element is found
+   */
+  #handleNoMatchingElement () {
+    throw new Error(`Found no matching element for ${this.#zodiacSign}`)
   }
 
   /**
@@ -51,8 +79,6 @@ export class Element {
    * @returns {string} The element corresponding to the sign
    */
   getElement () {
-    const element = this.#decideElement()
-
-    return element
+    return this.#decideElement()
   }
 }

@@ -22,26 +22,52 @@ export class Modality {
   }
 
   /**
-   * Maps the zodiac sign to its corresponding modality.
+   * Determines the modality for the zodiac sign.
    *
    * @returns {string} The modality corresponding to the sign
    */
   #decideModality () {
-    const modalities = {
+    const modalities = this.#getModalities()
+    return this.#findModality(this.#zodiacSign, modalities)
+  }
+
+  /**
+   * Returns the mapping of modalities to their corresponding zodiac signs.
+   *
+   * @returns {object} Modalities with corresponding zodiac signs
+   */
+  #getModalities () {
+    return {
       Cardinal: ['♈Aries', '♋Cancer', '♎Libra', '♑Capricorn'],
       Fixed: ['♌Leo', '♏Scorpio', '♒Aquarius', '♉Taurus'],
       Mutable: ['♐Sagittarius', '♓Pisces', '♊Gemini', '♍Virgo']
     }
+  }
 
-    const zodiacSign = this.#zodiacSign
-
+  /**
+   * Finds the modality for a given zodiac sign.
+   *
+   * @param {string} sign The zodiac sign to find the modality for
+   * @param {object} modalities The mapping of modalities to zodiac signs
+   * @returns {string} The matching modality
+   */
+  #findModality (sign, modalities) {
     for (const modality in modalities) {
-      if (modalities[modality].includes(zodiacSign)) {
+      if (modalities[modality].includes(sign)) {
         return modality
       }
     }
 
-    throw new Error(`No matching modality found for ${zodiacSign}`)
+    return this.#handleNoMatchingModality()
+  }
+
+  /**
+   * Handles the case when no matching modality is found.
+   *
+   * @throws {Error} If no matching modality is found
+   */
+  #handleNoMatchingModality () {
+    throw new Error(`Found no matching modality for  ${this.#zodiacSign}`)
   }
 
   /**
@@ -50,8 +76,6 @@ export class Modality {
    * @returns {string} The modality corresponding to the sign
    */
   getModality () {
-    const modality = this.#decideModality()
-
-    return modality
+    return this.#decideModality()
   }
 }

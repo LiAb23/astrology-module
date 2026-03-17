@@ -22,12 +22,58 @@ export class ZodiacSign {
   }
 
   /**
-   * Defines the dates of each sign and determines the zodiac sign of the given date.
+   * Determines the zodiac sign for the validated date.
    *
-   * @returns {string} The zodiac sign of the validatedDate
+   * @returns {string} The zodiac sign corresponding to the validated date
+   * @throws {Error} If no matching zodiac sign is found
    */
   #decideZodiacSign () {
-    const zodiacSigns = {
+    const monthDay = this.#validatedDate.slice(5)
+    return this.#findZodiacSign(monthDay)
+  }
+
+  /**
+   * Finds the zodiac sign given a month-day string.
+   *
+   * @param {string} monthDay The month and day extracted from the validated date
+   * @returns {string} The zodiac sign corresponding to the month-day
+   */
+  #findZodiacSign (monthDay) {
+    const zodiacSigns = this.#getZodiacSigns()
+
+    for (const sign in zodiacSigns) {
+      const periods = zodiacSigns[sign]
+
+      if (Array.isArray(periods)) {
+        for (const period of periods) {
+          if (this.#isDateInPeriod(monthDay, period)) {
+            return sign
+          }
+        }
+      } else if (this.#isDateInPeriod(monthDay, periods)) {
+        return sign
+      }
+    }
+    return this.#handleNoMatchingSign(monthDay)
+  }
+
+  /**
+   * Handles the case when no matching zodiac sign is found.
+   *
+   * @param {string} monthDay The month and day for which no matching sign was found
+   * @throws {Error} If no matching sign is found
+   */
+  #handleNoMatchingSign (monthDay) {
+    throw new Error(`Found no matching sign for ${monthDay}`)
+  }
+
+  /**
+   * Returns zodiac signs and their date ranges.
+   *
+   * @returns {object} Zodiac signs with their corresponding start and end dates
+   */
+  #getZodiacSigns () {
+    return {
       '♈Aries': { start: '03-21', end: '04-19' },
       '♉Taurus': { start: '04-20', end: '05-20' },
       '♊Gemini': { start: '05-21', end: '06-20' },
@@ -44,26 +90,17 @@ export class ZodiacSign {
       '♒Aquarius': { start: '01-20', end: '02-18' },
       '♓Pisces': { start: '02-19', end: '03-20' }
     }
+  }
 
-    const monthDay = this.#validatedDate.slice(5)
-
-    for (const zodiacSign in zodiacSigns) {
-      const periods = zodiacSigns[zodiacSign]
-
-      if (Array.isArray(periods)) {
-        for (const period of periods) {
-          if (monthDay >= period.start && monthDay <= period.end) {
-            return zodiacSign
-          }
-        }
-      } else {
-        const { start, end } = periods
-        if (monthDay >= start && monthDay <= end) {
-          return zodiacSign
-        }
-      }
-    }
-    throw new Error('Found no matching sign.')
+  /**
+   * Checks if a given month-day string falls within a specified date period.
+   *
+   * @param {string} monthDay The month and day to check
+   * @param {object} period An object with 'start' and 'end' dates
+   * @returns {boolean} True if the month-day is within the period
+   */
+  #isDateInPeriod (monthDay, period) {
+    return monthDay >= period.start && monthDay <= period.end
   }
 
   /**
@@ -72,8 +109,6 @@ export class ZodiacSign {
    * @returns {string} The zodiac sign of the validatedDate
    */
   getZodiacSign () {
-    const zodiacSign = this.#decideZodiacSign()
-
-    return zodiacSign
+    return this.#decideZodiacSign()
   }
 }
