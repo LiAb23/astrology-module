@@ -64,7 +64,7 @@ export class ZodiacSign {
    * @throws {Error} If no matching sign is found
    */
   #handleNoMatchingSign (monthDay) {
-    throw new Error(`Found no matching sign for ${monthDay}`)
+    throw new Error(`Failed to determine zodiac sign for date ${monthDay}`)
   }
 
   /**
@@ -74,21 +74,21 @@ export class ZodiacSign {
    */
   #getZodiacSigns () {
     return {
-      '♈ Aries': { start: '03-21', end: '04-19' },
-      '♉ Taurus': { start: '04-20', end: '05-20' },
-      '♊ Gemini': { start: '05-21', end: '06-20' },
-      '♋ Cancer': { start: '06-21', end: '07-22' },
-      '♌ Leo': { start: '07-23', end: '08-22' },
-      '♍ Virgo': { start: '08-23', end: '09-22' },
-      '♎ Libra': { start: '09-23', end: '10-22' },
-      '♏ Scorpio': { start: '10-23', end: '11-21' },
-      '♐ Sagittarius': { start: '11-22', end: '12-21' },
-      '♑ Capricorn': [
+      '♈Aries': { start: '03-21', end: '04-19' },
+      '♉Taurus': { start: '04-20', end: '05-20' },
+      '♊Gemini': { start: '05-21', end: '06-20' },
+      '♋Cancer': { start: '06-21', end: '07-22' },
+      '♌Leo': { start: '07-23', end: '08-22' },
+      '♍Virgo': { start: '08-23', end: '09-22' },
+      '♎Libra': { start: '09-23', end: '10-22' },
+      '♏Scorpio': { start: '10-23', end: '11-21' },
+      '♐Sagittarius': { start: '11-22', end: '12-21' },
+      '♑Capricorn': [
         { start: '12-22', end: '12-31' },
         { start: '01-01', end: '01-19' }
       ],
-      '♒ Aquarius': { start: '01-20', end: '02-18' },
-      '♓ Pisces': { start: '02-19', end: '03-20' }
+      '♒Aquarius': { start: '01-20', end: '02-18' },
+      '♓Pisces': { start: '02-19', end: '03-20' }
     }
   }
 
