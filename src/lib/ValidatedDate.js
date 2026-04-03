@@ -11,7 +11,7 @@ import { ZodiacSign } from './ZodiacSign.js'
  * @author Liv <lh224hh@student.lnu.se>
  * @version 1.0.0
  */
-export class DateToZodiac {
+export class ValidatedDate {
   #inputDate
   #validatedDate
 
