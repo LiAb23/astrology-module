@@ -22,7 +22,7 @@ export class ValidatedDate {
    */
   constructor (inputDate) {
     this.#inputDate = inputDate
-    this.#validatedDate = this.validateDate()
+    this.#validatedDate = this.#validateDate()
   }
 
   /**
@@ -30,7 +30,7 @@ export class ValidatedDate {
    *
    * @returns {string} The validated date in ISO 8601 format
    */
-  validateDate () {
+  #validateDate () {
     this.#checkDateFormat(this.#inputDate)
     return this.#checkDateValidity(this.#inputDate)
   }
@@ -65,15 +65,6 @@ export class ValidatedDate {
     }
 
     return validatedDate
-  }
-
-  /**
-   * Retrieves the validated date.
-   *
-   * @returns {string} The validated date
-   */
-  getValidatedDate () {
-    return this.#validatedDate
   }
 
   /**
